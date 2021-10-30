@@ -6,14 +6,14 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/10/31 00:53:22 by anclarma         ###   ########.fr        #
+#    Updated: 2021/10/30 20:40:48 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= phone_book
+NAME		= zombie
 CPP_FILES	= main.cpp				\
-			  phonebook.class.cpp	\
-			  contact.class.cpp
+			  Zombie.cpp			\
+			  ZombieHorde.cpp
 SRCS		= $(CPP_FILES)
 OBJS		= $(SRCS:.cpp=.o)
 DEPS		= $(OBJS:.o=.d)

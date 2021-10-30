@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 19:45:25 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/31 01:05:37 by anclarma         ###   ########.fr       */
+/*   Created: 2021/10/30 19:52:50 by anclarma          #+#    #+#             */
+/*   Updated: 2021/10/31 01:28:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
+int	main(void)
 {
-	return ;
-}
+	Zombie	*horde;
+	int		n;
 
-Zombie::~Zombie(void)
-{
-	return ;
-}
-
-void	Zombie::naming(std::string name)
-{
-	this->_name = name;
-	return ;
-}
-
-void	Zombie::announce(void) const
-{
-	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
+	horde = zombieHorde(21, "jeans");
+	n = 0;
+	while (n < 21)
+	{
+		horde[n].announce();
+		n++;
+	}
+	delete [] horde;
+	return (0);
 }

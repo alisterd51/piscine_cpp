@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/10/27 16:24:20 by anclarma         ###   ########.fr        #
+#    Updated: 2021/10/31 00:52:54 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ OBJS		= $(SRCS:.cpp=.o)
 DEPS		= $(OBJS:.o=.d)
 CC			= clang++
 CFLAGS		= -Wall -Wextra -Werror	\
+			  -std=c++98			\
 			  -MMD -MP
 LFLAGS		= -Wall -Wextra -Werror
 CINCLUDES	=

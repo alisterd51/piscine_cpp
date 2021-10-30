@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 18:54:59 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/30 20:02:00 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/10/31 01:05:56 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 class	Zombie
 {
 	public:
-		Zombie(std::string name);
+		Zombie(void);
 		~Zombie(void);
 
+		void	naming(std::string name);
 		void	announce(void) const;
 	private:
 		std::string _name;

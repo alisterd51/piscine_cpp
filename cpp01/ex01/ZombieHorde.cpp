@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 19:45:25 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/31 01:05:37 by anclarma         ###   ########.fr       */
+/*   Created: 2021/10/30 20:41:12 by anclarma          #+#    #+#             */
+/*   Updated: 2021/10/31 01:26:54 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
+Zombie* zombieHorde(int N, std::string name)
 {
-	return ;
-}
+	Zombie	*horde;
+	int		n;
 
-Zombie::~Zombie(void)
-{
-	return ;
-}
-
-void	Zombie::naming(std::string name)
-{
-	this->_name = name;
-	return ;
-}
-
-void	Zombie::announce(void) const
-{
-	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
+	horde = new Zombie[N];
+	n = 0;
+	while (n < N)
+	{
+		horde[n].naming(name);
+		n++;
+	}
+	return (horde);
 }

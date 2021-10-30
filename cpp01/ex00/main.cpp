@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 19:52:50 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/30 20:05:39 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/10/31 01:12:54 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(void)
 {
-	Zombie	*zombie = newZombie("jean");
+	Zombie	*zombie;
 
+	zombie = newZombie("jean");
 	zombie->announce();
 	delete zombie;
 	randomChump("kevin");
