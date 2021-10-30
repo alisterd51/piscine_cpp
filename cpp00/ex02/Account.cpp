@@ -6,12 +6,11 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:22:59 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/30 17:38:13 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/10/31 00:40:13 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctime>
-#include <iomanip>
 #include <iostream>
 #include "Account.hpp"
 
@@ -117,10 +116,14 @@ void	Account::displayStatus(void) const
 
 void	Account::_displayTimestamp(void)
 {
-	std::time_t time_now = std::time(nullptr);
-	std::cout << "["
-		<< std::put_time(std::localtime(&time_now), "%Y%m%d_%OH%OM%OS")
-		<< "] ";
+	time_t		rawtime;
+	struct tm	*timeinfo;
+	char		buffer[16];
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	strftime(buffer, 16, "%Y%m%d_%OH%OM%OS", timeinfo);
+	std::cout << "[" << buffer << "] ";
 }
 
 int Account::_nbAccounts = 0;
