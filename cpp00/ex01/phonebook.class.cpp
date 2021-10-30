@@ -6,23 +6,21 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 15:08:56 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/28 17:41:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/10/30 17:41:02 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "phonebook.class.hpp"
 
-Phonebook::Phonebook(void)
+Phonebook::Phonebook(void) :
+	conctact_number(0)
 {
-	std::cout << "Init" << std::endl;
-	this->conctact_number = 0;
 	return ;
 }
 
 Phonebook::~Phonebook(void)
 {
-	std::cout << "Destruct" << std::endl;
 	return ;
 }
 
