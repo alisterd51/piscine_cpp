@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:31:05 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/02 17:49:53 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/02 17:38:36 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Karen
 		~Karen();
 
 		void	complain(std::string level);
+		int		get_level(std::string level);
 	private:
 		void		(Karen::*_f[4])(void) const;
 		std::string	_levels[4];

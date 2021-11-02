@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 14:31:05 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/02 17:49:53 by anclarma         ###   ########.fr       */
+/*   Created: 2021/11/02 14:29:27 by anclarma          #+#    #+#             */
+/*   Updated: 2021/11/02 17:45:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#include "Karen.hpp"
 
-# include <string>
-
-class Karen
+int	main(int ac, char **av)
 {
-	public:
-		Karen();
-		~Karen();
+	Karen	karen;
+	int		level;
 
-		void	complain(std::string level);
-	private:
-		void		(Karen::*_f[4])(void) const;
-		std::string	_levels[4];
-
-		void		debug(void) const;
-		void		info(void) const;
-		void		warning(void) const;
-		void		error(void) const;
-};
-
-#endif
+	if (ac != 2)
+		level = 4;
+	else
+		level = karen.get_level(av[1]);
+	switch (level)
+	{
+		case 0:
+			karen.complain("DEBUG");
+		case 1:
+			karen.complain("INFO");
+		case 2:
+			karen.complain("WARNING");
+		case 3:
+			karen.complain("ERROR");
+			break;
+		default:
+			karen.complain("default");
+	}
+	return (0);
+}
