@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 01:24:20 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/03 01:41:15 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/03 12:25:36 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,5 @@ void	Fixed::setRawBits(int const raw)
 	this->_value = raw;
 	return ;
 }
+
+const int	Fixed::_nb_bits = 8;
