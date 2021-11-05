@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 16:57:01 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/02 23:01:36 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:15:12 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,15 @@ int	main(int ac, char **av)
 			<< std::endl;
 		return (1);
 	}
+	if (!av[2][0] || !av[3][0])
+	{
+		std::cerr
+			<< "Error, s1 or s2 is empty."
+			<< std::endl;
+		return (1);
+	}
 	filename = av[1];
-	infile.open(filename);
+	infile.open(filename.c_str());
 	if (infile.is_open())
 	{
 		std::cout << "ouverture infile ok" << std::endl;
@@ -56,7 +63,8 @@ int	main(int ac, char **av)
 		std::cout << "ouverture infile ko" << std::endl;
 		return (1);
 	}
-	outfile.open(filename + ".replace");
+	filename.append(".replace");
+	outfile.open(filename.c_str());
 	if (outfile.is_open())
 	{
 		std::cout << "ouverture outfile ok" << std::endl;

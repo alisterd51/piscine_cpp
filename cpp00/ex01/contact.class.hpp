@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 15:02:05 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/28 17:41:56 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 13:59:18 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Contact
 		std::string	darkest_secret;
 
 		Contact(void);
-		~Contact(void);
+		virtual ~Contact(void);
 
 		void	print(void);
 };

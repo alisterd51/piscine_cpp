@@ -6,11 +6,13 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:17:01 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/28 13:24:05 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 13:58:23 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdio.h>
+#include <ctype.h>
 
 int	main(int ac, char **av)
 {

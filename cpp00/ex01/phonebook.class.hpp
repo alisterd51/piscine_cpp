@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 15:02:05 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/28 16:36:36 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 13:59:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	Phonebook
 		Contact	conctact_tab[8];
 
 		Phonebook(void);
-		~Phonebook(void);
+		virtual ~Phonebook(void);
 
 		void	add(void);
 		void	search(void);
