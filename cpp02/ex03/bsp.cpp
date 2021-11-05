@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 19:25:37 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/03 20:06:29 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:13:14 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	d1 = sign(point, a, b);
 	d2 = sign(point, b, c);
 	d3 = sign(point, c, a);
-	neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-	pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+	neg = (d1 <= 0) || (d2 <= 0) || (d3 <= 0);
+	pos = (d1 >= 0) || (d2 >= 0) || (d3 >= 0);
 	return (!(neg && pos));
 }

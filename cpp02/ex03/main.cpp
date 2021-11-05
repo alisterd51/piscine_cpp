@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 01:15:21 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/03 20:56:03 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:12:05 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ int	main(void)
 		<< "point point: " << point << std::endl
 		<< bsp(a, b, c, point) << std::endl;
 	point = Point(Fixed(4.0f), Fixed(4.0f));
+	std::cout
+		<< "point a: " << a << std::endl
+		<< "point b: " << b << std::endl
+		<< "point c: " << c << std::endl
+		<< "point point: " << point << std::endl
+		<< bsp(a, b, c, point) << std::endl;
+	point = Point(Fixed(1.0f), Fixed(1.0f));
 	std::cout
 		<< "point a: " << a << std::endl
 		<< "point b: " << b << std::endl
