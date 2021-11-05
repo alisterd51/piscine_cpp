@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 23:55:20 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 00:02:42 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 22:43:06 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class	Cat : public Animal
 {
@@ -28,7 +29,7 @@ class	Cat : public Animal
 	protected:
 
 	private:
-
+		Brain	*_brain;
 };
 
 #endif

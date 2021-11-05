@@ -1,63 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 23:40:50 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 22:58:47 by anclarma         ###   ########.fr       */
+/*   Created: 2021/11/05 22:14:17 by anclarma          #+#    #+#             */
+/*   Updated: 2021/11/05 22:57:32 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat(void) :
-	Animal()
+Brain::Brain(void)
 {
 	std::cout
-		<< "default constructor of the cat class"
+		<< "default constructor of the brain class"
 		<< std::endl;
-	this->type = "cat";
-	this->_brain = new Brain();
 	return ;
 }
 
-Cat::Cat(Cat const &src) :
-	Animal()
+Brain::Brain(Brain const &src)
 {
 	std::cout
-		<< "constructor by copy of the cat class"
+		<< "constructor by copy of the brain class"
 		<< std::endl;
 	*this = src;
 	return ;
 }
 
-Cat::~Cat(void)
+Brain::~Brain(void)
 {
 	std::cout
-		<< "default destructor of the cat class"
+		<< "default destructor of the brain class"
 		<< std::endl;
-	delete this->_brain;
 	return ;
 }
 
-Cat	&Cat::operator=(Cat const &rhs)
+Brain	&Brain::operator=(Brain const &rhs)
 {
+	int	idea;
+
+	idea = 0;
 	if (this != &rhs)
 	{
-		this->type = rhs.getType();
-		this->_brain = rhs._brain;
+		while (idea < 100)
+		{
+			this->ideas[idea] = rhs.ideas[idea];
+			idea++;
+		}
 	}
 	return (*this);
-}
-
-void	Cat::makeSound(void) const
-{
-	std::cout
-		<< "miaou"
-		<< std::endl;
-	return ;
 }

@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 22:00:06 by anclarma          #+#    #+#              #
-#    Updated: 2021/11/05 17:38:30 by anclarma         ###   ########.fr        #
+#    Updated: 2021/11/05 22:17:48 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ O_DIR		= objs
 C_FILES		= main.cpp					\
 			  Animal.cpp				\
 			  Dog.cpp					\
-			  Cat.cpp
+			  Cat.cpp					\
+			  Brain.cpp
 SRCS		= $(patsubst %, $(C_DIR)/%, $(C_FILES))
 O_FILES		= $(C_FILES:.cpp=.o)
 OBJS		= $(patsubst %, $(O_DIR)/%, $(O_FILES))
