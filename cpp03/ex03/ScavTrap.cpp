@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:32:02 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/04 20:41:30 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:21:38 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ ScavTrap::ScavTrap(void) :
 	return ;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src)
+ScavTrap::ScavTrap(ScavTrap const &src) :
+	ClapTrap(src._name)
 {
 	*this = src;
 	std::cout

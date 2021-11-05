@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:32:02 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/04 20:45:03 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:25:50 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ DiamondTrap::DiamondTrap(void) :
 	return ;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &src)
+DiamondTrap::DiamondTrap(DiamondTrap const &src) :
+	ClapTrap(src._name + "_clap_name"),
+	ScavTrap(src._name + "_clap_name"),
+	FragTrap(src._name + "_clap_name")
 {
 	*this = src;
 	std::cout

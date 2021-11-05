@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:32:02 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/04 20:33:47 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:21:57 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ FragTrap::FragTrap(void) :
 	return ;
 }
 
-FragTrap::FragTrap(FragTrap const &src)
+FragTrap::FragTrap(FragTrap const &src) :
+	ClapTrap(src._name)
 {
 	*this = src;
 	std::cout
