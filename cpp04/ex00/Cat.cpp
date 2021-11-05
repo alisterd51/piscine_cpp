@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 23:40:50 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 00:15:47 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:29:08 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Cat::Cat(void) :
 	return ;
 }
 
-Cat::Cat(Cat const &src)
+Cat::Cat(Cat const &src) :
+	Animal()
 {
 	*this = src;
 	return ;

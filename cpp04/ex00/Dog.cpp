@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 23:40:50 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 00:13:34 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:28:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Dog::Dog(void) :
 	return ;
 }
 
-Dog::Dog(Dog const &src)
+Dog::Dog(Dog const &src) :
+	Animal()
 {
 	*this = src;
 	return ;
