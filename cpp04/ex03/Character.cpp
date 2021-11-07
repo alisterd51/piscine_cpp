@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 16:48:22 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/07 20:23:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/07 22:46:49 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ Character::~Character(void)
 			delete this->_history[id];
 		id++;
 	}
-	delete this->_history;
+	delete [] this->_history;
 	return ;
 }
 
