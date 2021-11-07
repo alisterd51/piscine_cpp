@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:20:26 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/07 17:29:16 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/07 20:25:51 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	{
 		if (this->_materias[i] != NULL
 				&& type.compare(this->_materias[i]->getType()) == 0)
-			return (this->_materias[i]);
+			return (this->_materias[i]->clone());
 		i++;
 	}
 	return (NULL);
