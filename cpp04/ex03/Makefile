@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 22:00:06 by anclarma          #+#    #+#              #
-#    Updated: 2021/11/05 23:25:20 by anclarma         ###   ########.fr        #
+#    Updated: 2021/11/07 16:13:23 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,11 @@ NAME		= materia
 C_DIR		= .
 O_DIR		= objs
 C_FILES		= main.cpp					\
-			  IMateriaSource.cpp		\
-			  MateriaSource.cpp			\
+			  AMateria.cpp				\
 			  Ice.cpp					\
 			  Cure.cpp					\
-			  ICharacter.cpp			\
 			  Character.cpp				\
-			  AMateria.cpp
+			  MateriaSource.cpp
 SRCS		= $(patsubst %, $(C_DIR)/%, $(C_FILES))
 O_FILES		= $(C_FILES:.cpp=.o)
 OBJS		= $(patsubst %, $(O_DIR)/%, $(O_FILES))

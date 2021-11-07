@@ -3,32 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 17:41:57 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/06 17:51:08 by anclarma         ###   ########.fr       */
+/*   Created: 2021/11/07 15:44:52 by anclarma          #+#    #+#             */
+/*   Updated: 2021/11/07 15:58:59 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include <string>
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class	Cure : public AMateria
 {
 	public:
 		Cure(void);
 		Cure(Cure const &src);
-		Cure(std::string const &type);
-		virtual	~Cure();
+		virtual	~Cure(void);
 
 		Cure	&operator=(Cure const &rhs);
 
-		std::string const	&getType() const; //Returns the materia type
-		virtual AMateria*	clone() const;
-		virtual void		use(ICharacter& target);
+		virtual Cure*	clone() const;
+		virtual void	use(ICharacter& target);
 	protected:
 
 	private:

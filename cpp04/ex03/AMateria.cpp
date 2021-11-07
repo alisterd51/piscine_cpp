@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 15:30:43 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/07 15:45:13 by anclarma         ###   ########.fr       */
+/*   Created: 2021/11/07 16:16:15 by anclarma          #+#    #+#             */
+/*   Updated: 2021/11/07 16:21:52 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#include "AMateria.hpp"
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
-
-class	Ice : public AMateria
+AMateria::AMateria(std::string const &type) :
+	_type(type)
 {
-	public:
-		Ice(void);
-		Ice(Ice const &src);
-		virtual	~Ice(void);
+	return ;
+}
 
-		Ice	&operator=(Ice const &rhs);
+AMateria::~AMateria(void)
+{
+	return ;
+}
 
-		virtual Ice*	clone() const;
-		virtual void	use(ICharacter& target);
-	protected:
+std::string const & AMateria::getType() const
+{
+	return (this->_type);
+}
 
-	private:
-		
-};
-
-#endif
+void AMateria::use(ICharacter& target)
+{
+	std::cout
+		<< "* does nothing about "
+		<< target.getName()
+		<< " *"
+		<< std::endl;
+	return ;
+}
