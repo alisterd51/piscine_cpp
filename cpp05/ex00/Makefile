@@ -6,16 +6,16 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 23:33:35 by anclarma          #+#    #+#              #
-#    Updated: 2021/11/07 23:34:06 by anclarma         ###   ########.fr        #
+#    Updated: 2021/11/08 02:22:56 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= bureaucrat
-C_DIR		= srcs
+C_DIR		= .
 O_DIR		= objs
-C_FILES		= main.cpp
+C_FILES		= main.cpp					\
+			  Bureaucrat.cpp
 SRCS		= $(patsubst %, $(C_DIR)/%, $(C_FILES))
-O_FILES		= $(C_FILES:.c=.o)
 O_FILES		= $(C_FILES:.cpp=.o)
 OBJS		= $(patsubst %, $(O_DIR)/%, $(O_FILES))
 CC			= gcc
@@ -25,19 +25,18 @@ RM			= rm -f
 MKDIR		= mkdir -p
 CFLAGS		= -Wall -Wextra -Werror		\
 			  -MMD -MP
-CXXFLAGS	= -Wall -Wextra -Werror		\
+CXXFLAGS	= -Wall -Wextra -Werror -g3	\
 			  -std=c++98				\
+			  -fsanitize=address		\
 			  -MMD -MP
-LFLAGS		= -Wall -Wextra -Werror
+LFLAGS		= -Wall -Wextra -Werror -g3	\
+			  -fsanitize=address
 CINCLUDES	= -I ./includes
 CLIBS		=
 
 all:		$(NAME)
 
 check:		all
-
-$(O_DIR)/%.o: $(C_DIR)/%.c
-			$(CC) $(CFLAGS) $(CINCLUDES) -c $< -o $@
 
 $(O_DIR)/%.o: $(C_DIR)/%.cpp
 			$(CXX) $(CXXFLAGS) $(CINCLUDES) -c $< -o $@

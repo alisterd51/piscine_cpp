@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 23:49:13 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/08 00:39:25 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/08 02:32:09 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ Bureaucrat::Bureaucrat(void) :
 	return ;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &src)
+Bureaucrat::Bureaucrat(Bureaucrat const &src) :
+	_name(src._name),
+	_grade(src._grade)
 {
-	*this = src;
 	return ;
 }
 
@@ -44,13 +45,16 @@ Bureaucrat::~Bureaucrat(void)
 Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs)
 {
 	if (this != &rhs)
-		*this = rhs;
+	{
+		this->_grade = rhs.getGrade();
+	}
 	return (*this);
 }
 
 Bureaucrat	&Bureaucrat::operator++(void)
 {
-	this->_grade = this->_grade - 1;
+	if (this->_grade > 1)
+		this->_grade = this->_grade - 1;
 	return (*this);
 }
 
@@ -64,7 +68,8 @@ Bureaucrat	Bureaucrat::operator++(int)
 
 Bureaucrat	&Bureaucrat::operator--(void)
 {
-	this->_grade = this->_grade + 1;
+	if (this->_grade < 150)
+		this->_grade = this->_grade + 1;
 	return (*this);
 }
 
