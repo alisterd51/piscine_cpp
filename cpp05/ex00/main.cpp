@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:29:22 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/08 02:37:57 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/08 16:31:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,50 @@ int	main(void)
 		std::cout
 			<< "after --kevin:\t\t"
 			<< kevin
+			<< std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout
+			<< e.what()
+			<< std::endl;
+	}
+	try
+	{
+		Bureaucrat	kevin("kevin", 3);
+		std::cout
+			<< kevin
+			<< std::endl
+			<< "return of ++kevin:\t"
+			<< ++kevin
+			<< std::endl
+			<< "return of ++kevin:\t"
+			<< ++kevin
+			<< std::endl
+			<< "return of ++kevin:\t"
+			<< ++kevin
+			<< std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout
+			<< e.what()
+			<< std::endl;
+	}
+	try
+	{
+		Bureaucrat	kevin("kevin", 148);
+		std::cout
+			<< kevin
+			<< std::endl
+			<< "return of --kevin:\t"
+			<< --kevin
+			<< std::endl
+			<< "return of --kevin:\t"
+			<< --kevin
+			<< std::endl
+			<< "return of --kevin:\t"
+			<< --kevin
 			<< std::endl;
 	}
 	catch (std::exception& e)
