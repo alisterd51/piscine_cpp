@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:29:22 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/09 01:46:40 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:49:44 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ int	main(void)
 		Bureaucrat	kevin("kevin", 150);
 		Bureaucrat	jean("jean", 50);
 		Bureaucrat	isildur("isildur", 1);
-		Form		*form1 = new ShrubberyCreationForm();
+		Form		*form1 = new ShrubberyCreationForm("home");
 		std::cout
 			<< "new form:\t"
 			<< *form1
 			<< std::endl;
-		Form		*form2 = new RobotomyRequestForm();
+		Form		*form2 = new RobotomyRequestForm("anclarma");
 		std::cout
 			<< "new form:\t"
 			<< *form2
 			<< std::endl;
-		Form		*form3 = new PresidentialPardonForm();
+		Form		*form3 = new PresidentialPardonForm("Xavier");
 		std::cout
 			<< "new form:\t"
 			<< *form3

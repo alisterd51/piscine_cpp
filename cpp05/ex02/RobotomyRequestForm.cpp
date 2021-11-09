@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:33:36 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/09 01:10:58 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:45:08 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,22 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(void) :
-	Form("robotomy request form", 72, 45)
+	Form("robotomy request", "anonymous", 72, 45)
 {
 	return ;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src) :
-	Form("robotomy request form", 72, 45)
+	Form(src.getName(), src.getTarget(), src.getGradeSignature(),
+			src.getGradeExecution())
 {
-	(void)src;
+	this->setIsSigned(src.getIsSigned());
+	return ;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target) :
+	Form("robotomy request", target, 72, 45)
+{
 	return ;
 }
 
@@ -55,7 +62,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		if (rand() % 100 < 50)
 		{
 			std::cout
-				<< executor
+				<< this->getTarget()
 				<< " has been successfully robotomized"
 				<< std::endl;
 		}
@@ -63,7 +70,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		{
 			std::cout
 				<< "robotomization of "
-				<< executor
+				<< this->getTarget()
 				<< " failed"
 				<< std::endl;
 		}

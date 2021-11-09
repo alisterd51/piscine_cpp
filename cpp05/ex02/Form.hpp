@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:38:38 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/09 00:10:07 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:17:30 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class	Form
 		Form(void);
 		Form(Form const &src);
 		Form(std::string const &name,
+				std::string const &target,
 				unsigned int const &rgs,
 				unsigned int const &rge);
 		virtual	~Form(void);
@@ -34,6 +35,7 @@ class	Form
 
 		Form	&beSigned(Bureaucrat const &bureaucrat);
 		std::string const	&getName(void) const;
+		std::string const	&getTarget(void) const;
 		bool				getIsSigned(void) const;
 		unsigned int const	&getGradeSignature(void) const;
 		unsigned int const	&getGradeExecution(void) const;
@@ -75,6 +77,7 @@ class	Form
 
 	private:
 		std::string const	_name;
+		std::string const	_target;
 		bool				_isSigned;
 		unsigned int const	_requiredGradeSignature;
 		unsigned int const	_requiredGradeExecution;

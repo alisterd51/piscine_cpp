@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:33:36 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/09 00:18:24 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:48:09 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) :
-	Form("shrubbery creation form", 145, 137)
+	Form("shrubbery creation", "anonymous", 145, 137)
 {
 	return ;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) :
-	Form("shrubbery creation form", 145, 137)
+	Form(src.getName(), src.getTarget(), src.getGradeSignature(),
+			src.getGradeExecution())
 {
-	(void)src;
+	this->setIsSigned(src.getIsSigned());
+	return ;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) :
+	Form("shrubbery creation", target, 145, 137)
+{
 	return ;
 }
 
@@ -50,7 +57,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		std::ofstream	outfile;
 		std::string		filename;
 
-		filename = executor.getName();
+		filename = this->getTarget();
 		filename.append("_shrubbery");
 		outfile.open(filename.c_str());
 		if (outfile.is_open())

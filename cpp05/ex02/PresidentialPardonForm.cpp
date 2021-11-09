@@ -6,22 +6,31 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:33:36 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/09 01:47:12 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:45:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void) :
-	Form("robotomy request form", 72, 45)
+	Form("presidential pardon", "anonymous", 25, 5)
 {
 	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) :
-	Form("robotomy request form", 72, 45)
+	Form(src.getName(),
+			src.getTarget(),
+			src.getGradeSignature(),
+			src.getGradeExecution())
 {
-	(void)src;
+	this->setIsSigned(src.getIsSigned());
+	return ;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target) :
+	Form("presidential pardon", target, 25, 5)
+{
 	return ;
 }
 
@@ -47,7 +56,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	else
 	{
 		std::cout
-			<< executor
+			<< this->getTarget()
 			<< " was forgiven by Zaphod Beeblebrox"
 			<< std::endl;
 	}

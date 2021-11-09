@@ -6,14 +6,15 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:20:59 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/08 22:27:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:22:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 Form::Form(void) :
-	_name("anonymous form"),
+	_name("anonymous"),
+	_target("anonymous"),
 	_isSigned(false),
 	_requiredGradeSignature(150),
 	_requiredGradeExecution(150)
@@ -23,6 +24,7 @@ Form::Form(void) :
 
 Form::Form(Form const &src) :
 	_name(src._name),
+	_target(src._target),
 	_isSigned(src._isSigned),
 	_requiredGradeSignature(src._requiredGradeSignature),
 	_requiredGradeExecution(src._requiredGradeExecution)
@@ -31,9 +33,11 @@ Form::Form(Form const &src) :
 }
 
 Form::Form(std::string const &name,
+		std::string const &target,
 		unsigned int const &rgs,
 		unsigned int const &rge) :
 	_name(name),
+	_target(target),
 	_isSigned(false),
 	_requiredGradeSignature(rgs),
 	_requiredGradeExecution(rge)
@@ -69,6 +73,11 @@ std::string const	&Form::getName(void) const
 	return (this->_name);
 }
 
+std::string const	&Form::getTarget(void) const
+{
+	return (this->_target);
+}
+
 bool	Form::getIsSigned(void) const
 {
 	return (this->_isSigned);
@@ -94,7 +103,8 @@ std::ostream	&operator<<(std::ostream &o, Form const &i)
 {
 	o
 		<< i.getName()
-		<< ": status: " << i.getIsSigned()
+		<< ", target: " << i.getTarget()
+		<< ", status: " << i.getIsSigned()
 		<< ", required for signature: " << i.getGradeSignature()
 		<< " and required for execution: " << i.getGradeExecution();
 	return (o);
