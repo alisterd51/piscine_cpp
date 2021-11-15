@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 23:33:35 by anclarma          #+#    #+#              #
-#    Updated: 2021/11/10 14:40:46 by anclarma         ###   ########.fr        #
+#    Updated: 2021/11/15 19:29:48 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,10 @@ RM			= rm -f
 MKDIR		= mkdir -p
 CFLAGS		= -Wall -Wextra -Werror		\
 			  -MMD -MP
-CXXFLAGS	= -Wall -Wextra -Werror	-g3	\
+CXXFLAGS	= -Wall -Wextra -Werror		\
 			  -std=c++98				\
 			  -MMD -MP
-LFLAGS		= -Wall -Wextra -Werror -g3
+LFLAGS		= -Wall -Wextra -Werror
 CINCLUDES	= -I ./includes
 CLIBS		=
 
