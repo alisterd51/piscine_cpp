@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:57:24 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/16 14:35:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/16 15:27:40 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	identify(Base *p)
 		std::cout << "B" << std::endl;
 	else if (dynamic_cast<C *>(p) != NULL)
 		std::cout << "C" << std::endl;
+	return ;
 }
 
 void	identify(Base &p)
@@ -74,4 +75,5 @@ void	identify(Base &p)
 	catch (std::exception &bc)
 	{
 	}
+	return ;
 }
