@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 18:10:48 by anclarma          #+#    #+#              #
-#    Updated: 2021/11/16 18:11:31 by anclarma         ###   ########.fr        #
+#    Updated: 2021/11/17 15:58:50 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,13 +33,13 @@ all:		$(NAME)
 check:		all
 
 $(O_DIR)/%.o: $(C_DIR)/%.cpp
-			$(CXX) $(CXXFLAGS) $(CINCLUDES) -c $< -o $@
+			$(CXX) $(CXXFLAGS) -g3 $(CINCLUDES) -c $< -o $@
 
 $(O_DIR):
 			$(MKDIR) $(O_DIR)
 
 $(NAME):	$(O_DIR) $(OBJS)
-			$(CXX) $(OBJS) $(LFLAGS) $(CLIBS) -o $@
+			$(CXX) $(OBJS) $(LFLAGS) -g3 $(CLIBS) -o $@
 
 clean:
 			$(RM) -r $(O_DIR)

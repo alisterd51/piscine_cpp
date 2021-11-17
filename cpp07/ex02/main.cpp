@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 18:11:54 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/16 18:17:22 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/17 17:57:27 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 5
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -25,6 +25,11 @@ int main(int, char**)
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
+    }
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+		std::cout << numbers[i] << ", ";
+		std::cout << mirror[i] << std::endl;
     }
     //SCOPE
     {
@@ -56,10 +61,13 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
+    }
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+		std::cout << numbers[i] << std::endl;
     }
     delete [] mirror;//
     return 0;
