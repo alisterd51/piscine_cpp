@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 01:20:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/18 03:59:35 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/18 06:05:58 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class	Span
 		Span	&operator=(Span const &rhs);
 		void	addNumber(int const &number);
 		void	addNumber(unsigned int const &nbIteration, int const &value);
+		void	addNumber(unsigned int const &nbIteration, int (*f)(void));
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
 

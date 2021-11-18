@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 02:18:20 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/18 05:57:46 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/18 06:28:00 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,21 @@ void    Span::addNumber(unsigned int const &nbIteration, int const &value)
 	while (i < nbIteration)
 	{
 		this->_lst.push_front(value);
+		i++;;
+	}
+	return ;
+}
+
+void    Span::addNumber(unsigned int const &nbIteration, int (*f)(void))
+{
+	unsigned int	i;
+
+	i = 0;
+	if (this->_lst.size() + nbIteration > this->_size)
+		throw Span::tooMuchValueException();
+	while (i < nbIteration)
+	{
+		this->_lst.push_front((*f)());
 		i++;;
 	}
 	return ;
