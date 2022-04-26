@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 19:52:50 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/31 01:12:54 by anclarma         ###   ########.fr       */
+/*   Created: 2022/02/11 15:22:58 by anclarma          #+#    #+#             */
+/*   Updated: 2022/02/11 15:28:08 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,22 @@
 
 int	main(void)
 {
-	Zombie	*zombie;
+	{
+		Zombie	zombie1;
 
-	zombie = newZombie("jean");
-	zombie->announce();
-	delete zombie;
-	randomChump("kevin");
+		zombie1.setName("antoine");
+		zombie1.announce();
+	}
+	{
+		Zombie  *zombie2;
+
+		zombie2 = newZombie("claude");
+		zombie2->announce();
+		delete zombie2;
+	}
+	{
+		randomChump("jean");
+	}
 	return (0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 23:49:13 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/09 00:28:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/18 23:38:27 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_grade = rhs.getGrade();
+		this->_grade = rhs._grade;
 	}
 	return (*this);
 }
@@ -55,6 +55,8 @@ Bureaucrat	&Bureaucrat::operator++(void)
 {
 	if (this->_grade > 1)
 		this->_grade = this->_grade - 1;
+	else
+		throw Bureaucrat::GradeTooHighException();
 	return (*this);
 }
 
@@ -70,6 +72,8 @@ Bureaucrat	&Bureaucrat::operator--(void)
 {
 	if (this->_grade < 150)
 		this->_grade = this->_grade + 1;
+	else
+		throw Bureaucrat::GradeTooLowException();
 	return (*this);
 }
 

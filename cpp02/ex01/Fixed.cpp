@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 01:24:20 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/03 14:54:28 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/14 13:56:38 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,21 @@ Fixed::Fixed(Fixed const &src)
 	return ;
 }
 
-Fixed::Fixed(int const &i)
+Fixed::Fixed(int const &value)
 {
 	std::cout
 		<< "Int constructor called"
 		<< std::endl;
-	this->_value = i << this->_fractional_bits;
+	this->_value = value << this->_fractionalBits;
 	return ;
 }
 
-Fixed::Fixed(float const &f)
+Fixed::Fixed(float const &value)
 {
 	std::cout
 		<< "Float constructor called"
 		<< std::endl;
-	this->_value = roundf(f * (1 << this->_fractional_bits));
+	this->_value = roundf(value * (1 << this->_fractionalBits));
 	return ;
 }
 
@@ -61,10 +61,9 @@ Fixed::~Fixed(void)
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
 	std::cout
-		<< "Assignation operator called"
+		<< "Copy assignation operator called"
 		<< std::endl;
-	if (this != &rhs)
-		this->_value = rhs._value;
+	this->_value = rhs._value;
 	return (*this);
 }
 
@@ -87,15 +86,15 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_value / (1 << this->_fractional_bits));
+	return (static_cast<float>(this->_value) / (1 << this->_fractionalBits));
 }
 
 int	Fixed::toInt(void) const
 {
-	return (this->_value >> this->_fractional_bits);
+	return (this->_value >> this->_fractionalBits);
 }
 
-const int	Fixed::_fractional_bits = 8;
+const int	Fixed::_fractionalBits = 8;
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &i)
 {

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 23:40:50 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 16:29:08 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/17 05:09:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,33 @@ Cat::Cat(void) :
 	Animal()
 {
 	this->type = "cat";
+	std::cout
+		<< GREEN
+		<< "a new cat has been created"
+		<< RESET
+		<< std::endl;
 	return ;
 }
 
 Cat::Cat(Cat const &src) :
-	Animal()
+	Animal(src)
 {
 	*this = src;
+	std::cout
+		<< GREEN
+		<< "a new animal has been created by copy"
+		<< RESET
+		<< std::endl;
 	return ;
 }
 
 Cat::~Cat(void)
 {
+	std::cout
+		<< RED
+		<< "an cat has been destroyed"
+		<< RESET
+		<< std::endl;
 	return ;
 }
 

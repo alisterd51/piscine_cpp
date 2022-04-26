@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/16 16:53:29 by anclarma          #+#    #+#              #
-#    Updated: 2021/11/16 17:42:14 by anclarma         ###   ########.fr        #
+#    Created: 2022/02/20 14:26:00 by anclarma          #+#    #+#              #
+#    Updated: 2022/02/21 11:11:55 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ C_FILES		= main.cpp
 SRCS		= $(patsubst %, $(C_DIR)/%, $(C_FILES))
 O_FILES		= $(C_FILES:.cpp=.o)
 OBJS		= $(patsubst %, $(O_DIR)/%, $(O_FILES))
-CXX			= g++
+CXX			= c++
 MAKE		= make
 RM			= rm -f
 MKDIR		= mkdir -p
@@ -29,8 +29,6 @@ CINCLUDES	= -I ./includes
 CLIBS		=
 
 all:		$(NAME)
-
-check:		all
 
 $(O_DIR)/%.o: $(C_DIR)/%.cpp
 			$(CXX) $(CXXFLAGS) $(CINCLUDES) -c $< -o $@

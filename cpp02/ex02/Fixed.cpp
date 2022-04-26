@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 01:24:20 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/03 17:39:57 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/14 13:58:12 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ Fixed::Fixed(Fixed const &src)
 	return ;
 }
 
-Fixed::Fixed(int const &i)
+Fixed::Fixed(int const &value)
 {
-	this->_value = i << this->_fractional_bits;
+	this->_value = value << this->_fractionalBits;
 	return ;
 }
 
-Fixed::Fixed(float const &f)
+Fixed::Fixed(float const &value)
 {
-	this->_value = roundf(f * (1 << this->_fractional_bits));
+	this->_value = roundf(value * (1 << this->_fractionalBits));
 	return ;
 }
 
@@ -45,8 +45,7 @@ Fixed::~Fixed(void)
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
-	if (this != &rhs)
-		this->_value = rhs._value;
+	this->_value = rhs.getRawBits();
 	return (*this);
 }
 
@@ -128,7 +127,6 @@ Fixed	Fixed::operator--(int)
 	return (post);
 }
 
-
 int	Fixed::getRawBits(void) const
 {
 	return (this->_value);
@@ -142,17 +140,33 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_value / (1 << this->_fractional_bits));
+	return (static_cast<float>(this->_value) / (1 << this->_fractionalBits));
 }
 
 int	Fixed::toInt(void) const
 {
-	return (this->_value >> this->_fractional_bits);
+	return (this->_value >> this->_fractionalBits);
 }
 
 Fixed const	&Fixed::min(Fixed const &a, Fixed const &b)
 {
 	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a >= b)
 		return (a);
 	else
 		return (b);
@@ -166,7 +180,7 @@ Fixed const	&Fixed::max(Fixed const &a, Fixed const &b)
 		return (b);
 }
 
-const int	Fixed::_fractional_bits = 8;
+const int	Fixed::_fractionalBits = 8;
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &i)
 {

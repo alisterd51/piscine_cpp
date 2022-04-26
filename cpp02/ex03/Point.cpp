@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 18:55:30 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/03 20:53:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:04:01 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,13 @@ float	Point::getY(void) const
 
 Point	&Point::operator=(Point const &rhs)
 {
-	if (this != &rhs)
-	{
-		*(Fixed *)&this->x = rhs.x;
-		*(Fixed *)&this->y = rhs.y;
-	}
+	*(Fixed *)&this->x = rhs.x;
+	*(Fixed *)&this->y = rhs.y;
 	return (*this);
 }
 
 std::ostream    &operator<<(std::ostream &o, Point const &i)
 {
-    o << "x:" << i.getX() << ", y:" << i.getX();
+    o << "x:" << i.getX() << ", y:" << i.getY();
     return (o);
 }

@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:33:36 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/10 19:52:01 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:45:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,4 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 			<< std::endl;
 	}
 	return ;
-}
-
-Form    *PresidentialPardonForm::clone(std::string const &target) const
-{
-	return (new PresidentialPardonForm(target));
 }

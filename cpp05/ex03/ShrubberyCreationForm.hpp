@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:13:33 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/10 19:17:09 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:46:41 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class	ShrubberyCreationForm : public Form
 
 		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const &rhs);
 		virtual void	execute(Bureaucrat const & executor) const;
-		virtual Form	*clone(std::string const &target) const;
 	protected:
 
 	private:

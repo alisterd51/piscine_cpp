@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   WrongDog.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 15:02:05 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 13:59:29 by anclarma         ###   ########.fr       */
+/*   Created: 2021/11/04 23:54:01 by anclarma          #+#    #+#             */
+/*   Updated: 2021/11/05 00:41:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-# define PHONEBOOK_CLASS_HPP
+#ifndef WRONGDOG_HPP
+# define WRONGDOG_HPP
 
-#include "contact.class.hpp"
+#include "WrongAnimal.hpp"
 
-class	Phonebook
+class	WrongDog : public WrongAnimal
 {
 	public:
-		int		conctact_number;
-		Contact	conctact_tab[8];
+		WrongDog(void);
+		WrongDog(WrongDog const &src);
+		virtual	~WrongDog(void);
 
-		Phonebook(void);
-		virtual ~Phonebook(void);
+		WrongDog	&operator=(WrongDog const &rhs);
 
-		void	add(void);
-		void	search(void);
+		void	makeSound(void) const;
+	protected:
+
+	private:
+
 };
 
 #endif

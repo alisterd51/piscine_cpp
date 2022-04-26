@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:20:59 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/08 19:12:11 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/18 18:42:49 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ Form::Form(std::string const &name,
 	_requiredGradeSignature(rgs),
 	_requiredGradeExecution(rge)
 {
+	if (rgs < 1 || rge < 1)
+		throw Form::GradeTooHighException();
+	else if (rgs > 150 || rge > 150)
+		throw Form::GradeTooLowException();
 	return ;
 }
 

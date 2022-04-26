@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:29:22 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/08 16:31:16 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/18 15:21:15 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 int	main(void)
 {
+	Bureaucrat	kevin("kevin", 42);
+
+	std::cout << kevin << std::endl;
 	try
 	{
-		Bureaucrat	kevin("kevin", 0);
+		kevin = Bureaucrat("kevin", 0);
 		std::cout
 			<< kevin
 			<< std::endl;
@@ -28,9 +31,10 @@ int	main(void)
 			<< e.what()
 			<< std::endl;
 	}
+	std::cout << kevin << std::endl;
 	try
 	{
-		Bureaucrat	kevin("kevin", 151);
+		kevin = Bureaucrat("kevin", 151);
 		std::cout
 			<< kevin
 			<< std::endl;
@@ -41,9 +45,10 @@ int	main(void)
 			<< e.what()
 			<< std::endl;
 	}
+	std::cout << kevin << std::endl;
 	try
 	{
-		Bureaucrat	kevin("kevin", 10);
+		kevin = Bureaucrat("kevin", 10);
 		std::cout
 			<< "after construction:\t"
 			<< kevin
@@ -87,9 +92,10 @@ int	main(void)
 			<< e.what()
 			<< std::endl;
 	}
+	std::cout << kevin << std::endl;
 	try
 	{
-		Bureaucrat	kevin("kevin", 3);
+		kevin = Bureaucrat("kevin", 3);
 		std::cout
 			<< kevin
 			<< std::endl
@@ -109,9 +115,10 @@ int	main(void)
 			<< e.what()
 			<< std::endl;
 	}
+	std::cout << kevin << std::endl;
 	try
 	{
-		Bureaucrat	kevin("kevin", 148);
+		kevin = Bureaucrat("kevin", 148);
 		std::cout
 			<< kevin
 			<< std::endl
@@ -131,5 +138,6 @@ int	main(void)
 			<< e.what()
 			<< std::endl;
 	}
+	std::cout << kevin << std::endl;
 	return (0);
 }

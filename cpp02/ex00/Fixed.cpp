@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 01:24:20 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/03 12:25:36 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/14 17:47:26 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,9 @@ Fixed::~Fixed(void)
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
 	std::cout
-		<< "Assignation operator called"
+		<< "Copy assignment operator called"
 		<< std::endl;
-	if (this != &rhs)
-		this->_value = rhs.getRawBits();
+	this->_value = rhs.getRawBits();
 	return (*this);
 }
 
@@ -66,4 +65,4 @@ void	Fixed::setRawBits(int const raw)
 	return ;
 }
 
-const int	Fixed::_nb_bits = 8;
+const int	Fixed::_fractionalBits = 8;

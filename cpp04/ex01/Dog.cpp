@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 23:40:50 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 22:59:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/17 10:29:36 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,38 @@
 Dog::Dog(void) :
 	Animal()
 {
-	std::cout
-		<< "default constructor of the dog class"
-		<< std::endl;
 	this->type = "dog";
 	this->_brain = new Brain();
+	this->_numberIdeas = 0;
+	std::cout
+		<< GREEN
+		<< "a new dog has been created"
+		<< RESET
+		<< std::endl;
 	return ;
 }
 
 Dog::Dog(Dog const &src) :
-	Animal()
+	Animal(src)
 {
-	std::cout
-		<< "constructor by copy of the dog class"
-		<< std::endl;
+	this->_brain = new Brain();
 	*this = src;
+	std::cout
+		<< GREEN
+		<< "a new dog has been created by copy"
+		<< RESET
+		<< std::endl;
 	return ;
 }
 
 Dog::~Dog(void)
 {
+	delete _brain;
 	std::cout
-		<< "default destructor of the dog class"
+		<< RED
+		<< "an dog has been destroyed"
+		<< RESET
 		<< std::endl;
-	delete this->_brain;
 	return ;
 }
 
@@ -48,7 +56,8 @@ Dog	&Dog::operator=(Dog const &rhs)
 	if (this != &rhs)
 	{
 		this->type = rhs.getType();
-		this->_brain = rhs._brain;
+		*this->_brain = *rhs._brain;
+		this->_numberIdeas = rhs._numberIdeas;
 	}
 	return (*this);
 }
@@ -59,4 +68,19 @@ void	Dog::makeSound(void) const
 		<< "wouf"
 		<< std::endl;
 	return ;
+}
+
+void	Dog::addIdea(std::string idea)
+{
+	if (this->_numberIdeas < 100)
+	{
+		this->_brain->ideas[this->_numberIdeas] = idea;
+		this->_numberIdeas++;
+	}
+}
+
+void    Dog::printIdeas(void) const
+{
+	for (unsigned int idea = 0; idea < this->_numberIdeas; idea++)
+		std::cout << this->_brain->ideas[idea] << std::endl;
 }

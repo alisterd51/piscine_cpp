@@ -5,52 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 16:54:32 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/16 17:52:30 by anclarma         ###   ########.fr       */
+/*   Created: 2022/02/20 14:27:52 by anclarma          #+#    #+#             */
+/*   Updated: 2022/02/20 16:26:48 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 #include "iter.hpp"
 
-void	test1(int *a)
+class Awesome
 {
-	*a = *a + 1;
+	public:
+		Awesome(void) :
+			_n(42)
+		{
+			return;
+		}
+		int get(void) const
+		{
+			return (this->_n);
+		}
+	private:
+		int _n;
+};
+
+std::ostream & operator<<(std::ostream &o, Awesome const &rhs)
+{
+	o << rhs.get();
+	return (o);
 }
 
-void	test2(double *a)
+template<typename T>
+void print(T const &x)
 {
-	*a = *a + 1.0;
+	std::cout << x << std::endl;
+	return;
 }
 
-void	test3(std::string *a)
+template<typename T>
+void inc(T &x)
 {
-	*a = "meh";
+	x++;
+	return;
 }
 
-int	main(void)
+int main(void)
 {
-	{
-		int	tab[3] = {0, 1, 2};
+	int		tab[] = {0, 1, 2, 3, 4};
+	Awesome	tab2[5];
 
-		std::cout << tab[0] << ", " << tab[1] << ", " << tab[2] << std::endl;
-		::iter(tab, 3, test1);
-		std::cout << tab[0] << ", " << tab[1] << ", " << tab[2] << std::endl;
-	}
-	{
-		double	tab[3] = {0.1, 2.3, 4.5};
-
-		std::cout << tab[0] << ", " << tab[1] << ", " << tab[2] << std::endl;
-		::iter(tab, 3, test2);
-		std::cout << tab[0] << ", " << tab[1] << ", " << tab[2] << std::endl;
-	}
-	{
-		std::string	tab[3] = {"a", "b", "c"};
-
-		std::cout << tab[0] << ", " << tab[1] << ", " << tab[2] << std::endl;
-		::iter(tab, 3, test3);
-		std::cout << tab[0] << ", " << tab[1] << ", " << tab[2] << std::endl;
-	}
+	iter(tab, 5, print);
+	iter(tab, 5, inc);
+	iter(tab, 5, print);
+	iter(tab2, 5, print);
 	return (0);
 }

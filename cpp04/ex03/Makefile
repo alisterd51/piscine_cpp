@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 22:00:06 by anclarma          #+#    #+#              #
-#    Updated: 2021/11/07 22:50:20 by anclarma         ###   ########.fr        #
+#    Updated: 2022/02/17 16:09:10 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,10 @@ C_FILES		= main.cpp					\
 SRCS		= $(patsubst %, $(C_DIR)/%, $(C_FILES))
 O_FILES		= $(C_FILES:.cpp=.o)
 OBJS		= $(patsubst %, $(O_DIR)/%, $(O_FILES))
-CXX			= g++
+CXX			= c++
 MAKE		= make
 RM			= rm -f
 MKDIR		= mkdir -p
-CFLAGS		= -Wall -Wextra -Werror		\
-			  -MMD -MP
 CXXFLAGS	= -Wall -Wextra -Werror		\
 			  -std=c++98				\
 			  -MMD -MP

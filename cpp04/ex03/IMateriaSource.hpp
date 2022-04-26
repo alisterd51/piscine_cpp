@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 16:00:18 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/07 16:32:02 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:37:55 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	AMateria;
 class	IMateriaSource
 {
 	public:
-		virtual	~IMateriaSource() {}
+		virtual	~IMateriaSource() {};
 		virtual void	learnMateria(AMateria*) = 0;
 		virtual AMateria*	createMateria(std::string const & type) = 0;
 	protected:

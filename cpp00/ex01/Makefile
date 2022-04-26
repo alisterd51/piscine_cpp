@@ -5,42 +5,50 @@
 #                                                     +:+ +:+         +:+      #
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/10/31 00:53:22 by anclarma         ###   ########.fr        #
+#    Created: 2022/02/11 08:34:08 by anclarma          #+#    #+#              #
+#    Updated: 2022/02/11 08:34:13 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= phone_book
-CPP_FILES	= main.cpp				\
-			  phonebook.class.cpp	\
-			  contact.class.cpp
-SRCS		= $(CPP_FILES)
-OBJS		= $(SRCS:.cpp=.o)
-DEPS		= $(OBJS:.o=.d)
-CC			= clang++
-CFLAGS		= -Wall -Wextra -Werror	\
-			  -std=c++98			\
+NAME		= phonebook
+C_DIR		= .
+O_DIR		= objs
+C_FILES		= main.cpp					\
+			  PhoneBook.cpp				\
+			  Contact.cpp
+SRCS		= $(patsubst %, $(C_DIR)/%, $(C_FILES))
+O_FILES		= $(C_FILES:.cpp=.o)
+OBJS		= $(patsubst %, $(O_DIR)/%, $(O_FILES))
+CXX			= g++
+MAKE		= make
+RM			= rm -f
+MKDIR		= mkdir -p
+CXXFLAGS	= -Wall -Wextra -Werror		\
+			  -std=c++98				\
 			  -MMD -MP
 LFLAGS		= -Wall -Wextra -Werror
-CINCLUDES	=
+CINCLUDES	= -I .
 CLIBS		=
 
 all:		$(NAME)
 
-%.o:%.cpp
-			$(CC) $(CFLAGS) $(CINCLUDES) -c $< -o $@
+$(O_DIR)/%.o: $(C_DIR)/%.cpp
+			$(CXX) $(CXXFLAGS) $(CINCLUDES) -c $< -o $@
 
-$(NAME):	$(LIBFT) $(OBJS)
-			$(CC) $(OBJS) $(LFLAGS) $(CLIBS) -o $@
+$(O_DIR):
+			$(MKDIR) $(O_DIR)
+
+$(NAME):	$(O_DIR) $(OBJS)
+			$(CXX) $(OBJS) $(LFLAGS) $(CLIBS) -o $@
 
 clean:
-			rm -f $(OBJS) $(DEPS)
+			$(RM) -r $(O_DIR)
 
 fclean:		clean
-			rm -f $(NAME)
+			$(RM) $(NAME)
 
 re:			fclean all
 
--include	$(DEPS)
+-include	$(OBJS:.o=.d)
 
 .PHONY:		all clean fclean re

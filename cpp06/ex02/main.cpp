@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:48:23 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/16 14:26:48 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:24:30 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	main(void)
 		delete base;
 	}
 	{
-		identify(NULL);
+		Base	base;
+
+		identify(base);
 		identify(NULL);
 	}
 	return (0);

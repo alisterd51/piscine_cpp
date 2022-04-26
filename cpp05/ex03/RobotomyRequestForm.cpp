@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:33:36 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/10 19:51:26 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:45:08 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,4 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		}
 	}
 	return ;
-}
-
-Form    *RobotomyRequestForm::clone(std::string const &target) const
-{
-	return (new RobotomyRequestForm(target));
 }

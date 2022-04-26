@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 16:57:01 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 15:15:12 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/13 20:34:20 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ std::string	ReplaceAll(std::string str, const std::string& from,
         start_pos += to.length();
 		str.erase(start_pos, from.length());
     }
-    return str;
+    return (str);
 }
 
 int	main(int ac, char **av)

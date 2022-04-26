@@ -6,14 +6,14 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:20:59 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/09 02:22:29 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/18 23:37:04 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 Form::Form(void) :
-	_name("anonymous"),
+	_name("anonymous form"),
 	_target("anonymous"),
 	_isSigned(false),
 	_requiredGradeSignature(150),
@@ -42,6 +42,10 @@ Form::Form(std::string const &name,
 	_requiredGradeSignature(rgs),
 	_requiredGradeExecution(rge)
 {
+	if (rgs < 1 || rge < 1)
+		throw Form::GradeTooHighException();
+	else if (rgs > 150 || rge > 150)
+		throw Form::GradeTooLowException();
 	return ;
 }
 
@@ -78,7 +82,7 @@ std::string const	&Form::getTarget(void) const
 	return (this->_target);
 }
 
-bool	Form::getIsSigned(void) const
+bool const	&Form::getIsSigned(void) const
 {
 	return (this->_isSigned);
 }
@@ -104,7 +108,7 @@ std::ostream	&operator<<(std::ostream &o, Form const &i)
 	o
 		<< i.getName()
 		<< ", target: " << i.getTarget()
-		<< ", status: " << i.getIsSigned()
+		<< ": status: " << i.getIsSigned()
 		<< ", required for signature: " << i.getGradeSignature()
 		<< " and required for execution: " << i.getGradeExecution();
 	return (o);

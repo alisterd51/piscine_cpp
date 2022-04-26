@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 01:24:26 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/03 01:27:33 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/14 11:20:07 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Fixed
 		void	setRawBits(int const raw);
 	private:
 		int					_value;
-		static const int	_nb_bits;
+		static const int	_fractionalBits;
 };
 
 #endif

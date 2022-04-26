@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:09:34 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/04 17:19:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/16 08:35:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class	FragTrap : public ClapTrap
 
 		FragTrap	&operator=(FragTrap const &rhs);
 
+		void	attack(std::string const &target);
 		void	highFivesGuys(void);
 	private:
 

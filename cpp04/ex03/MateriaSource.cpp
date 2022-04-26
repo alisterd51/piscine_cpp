@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:20:26 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/07 20:25:51 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:44:06 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,8 @@
 
 MateriaSource::MateriaSource(void)
 {
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		this->_materias[i] = NULL;
-		i++;
-	}
+	for (int id = 0; id < 4; id++)
+		this->_materias[id] = NULL;
 	return ;
 }
 
@@ -33,24 +27,30 @@ MateriaSource::MateriaSource(MateriaSource const &src)
 
 MateriaSource::~MateriaSource(void)
 {
-	int	i;
-
-	i = 0;
-	while (i < 4)
+	for (int id = 0; id < 4; id++)
 	{
-		if (this->_materias[i] != NULL)
-		{
-			delete this->_materias[i];
-			this->_materias[i] = NULL;
-		}
-		i++;
+		if (this->_materias[id] != NULL)
+			delete this->_materias[id];
 	}
 }
 
 MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 {
 	if (this != &rhs)
-		*this = rhs;
+	{
+		for (int id = 0; id < 4; id++)
+		{
+			if (this->_materias[id] != NULL)
+				delete this->_materias[id];
+		}
+		for (int id = 0; id < 4; id++)
+		{
+			if (rhs._materias[id] != NULL)
+				this->_materias[id] = rhs._materias[id]->clone();
+			else
+				this->_materias[id] = NULL;
+		}
+	}
 	return (*this);
 }
 
@@ -70,15 +70,11 @@ void MateriaSource::learnMateria(AMateria *newMateria)
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	int	i;
-
-	i = 0;
-	while (i < 4)
+	for (int id = 0; id < 4; id++)
 	{
-		if (this->_materias[i] != NULL
-				&& type.compare(this->_materias[i]->getType()) == 0)
-			return (this->_materias[i]->clone());
-		i++;
+		if (this->_materias[id] != NULL
+				&& type.compare(this->_materias[id]->getType()) == 0)
+			return (this->_materias[id]->clone());
 	}
 	return (NULL);
 }

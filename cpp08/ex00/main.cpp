@@ -5,74 +5,102 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 18:34:23 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/18 00:00:49 by anclarma         ###   ########.fr       */
+/*   Created: 2022/02/21 14:41:14 by anclarma          #+#    #+#             */
+/*   Updated: 2022/02/21 18:45:47 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <list>
+#include <vector>
 #include <deque>
+#include <queue>
+#include <list>
+#include <map>
 #include "easyfind.hpp"
 
 int	main(void)
 {
+	std::cout << "-vector<int>-----------------------------------" << std::endl;
 	{
-		std::list<int>	lst1;
+		std::vector<int>	array;
 
-		lst1.push_back(1);
-		lst1.push_back(2);
-		lst1.push_back(3);
+		array.push_back(21);
+		array.push_back(42);
 		try
 		{
-			std::list<int>::iterator	it;
-
-			it = easyfind(lst1, 2);
-			std::cout << *it << std::endl;
+			std::cout
+				<< "size: " << array.size() << std::endl
+				<< "array[0]: "<< array[0] << std::endl
+				<< "array[1]: " << array[1] << std::endl
+				<< "easyfind 21: " << *easyfind(array, 21) << std::endl
+				<< "easyfind 42: " << *easyfind(array, 42) << std::endl
+				<< "easyfind 0: " << *easyfind(array, 0) << std::endl
+				<< "easyfind 404: " << *easyfind(array, 404) << std::endl;
 		}
-		catch(const std::exception& e)
+		catch (std::exception &e)
 		{
-			std::cerr << e.what() << std::endl;
-		}
-		try
-		{
-			std::list<int>::iterator	it;
-
-			it = easyfind(lst1, 4);
-			std::cout << *it << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << "-deque<int>------------------------------------" << std::endl;
 	{
-		std::deque<int>	deq1;
+		std::deque<int>	array;
 
-		deq1.push_back(1);
-		deq1.push_back(2);
-		deq1.push_back(3);
+		array.push_back(21);
+		array.push_back(42);
 		try
 		{
-			std::deque<int>::iterator	it;
-
-			it = easyfind(deq1, 2);
-			std::cout << *it << std::endl;
+			std::cout
+				<< "size: " << array.size() << std::endl
+				<< "array[0]: "<< array[0] << std::endl
+				<< "array[1]: " << array[1] << std::endl
+				<< "easyfind 21: " << *easyfind(array, 21) << std::endl
+				<< "easyfind 42: " << *easyfind(array, 42) << std::endl
+				<< "easyfind 0: " << *easyfind(array, 0) << std::endl
+				<< "easyfind 404: " << *easyfind(array, 404) << std::endl;
 		}
-		catch(const std::exception& e)
+		catch (std::exception &e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
 		}
+	}
+	std::cout << "-list<int>-------------------------------------" << std::endl;
+	{
+		std::list<int>	array;
+
+		array.push_back(21);
+		array.push_back(42);
 		try
 		{
-			std::deque<int>::iterator	it;
-
-			it = easyfind(deq1, 4);
-			std::cout << *it << std::endl;
+			std::cout
+				<< "size: " << array.size() << std::endl
+				<< "easyfind 21: " << *easyfind(array, 21) << std::endl
+				<< "easyfind 42: " << *easyfind(array, 42) << std::endl
+				<< "easyfind 0: " << *easyfind(array, 0) << std::endl
+				<< "easyfind 404: " << *easyfind(array, 404) << std::endl;
 		}
-		catch(const std::exception& e)
+		catch (std::exception &e)
 		{
-			std::cerr << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
+		}
+	}
+	std::cout << "-const list<int>-------------------------------" << std::endl;
+	{
+		int						tab[2] = {21, 42};
+		const std::list<int>	array(tab, tab + 2);
+
+		try
+		{
+			std::cout
+				<< "size: " << array.size() << std::endl
+				<< "easyfind 21: " << *easyfind(array, 21) << std::endl
+				<< "easyfind 42: " << *easyfind(array, 42) << std::endl
+				<< "easyfind 0: " << *easyfind(array, 0) << std::endl
+				<< "easyfind 404: " << *easyfind(array, 404) << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
 		}
 	}
 	return (0);

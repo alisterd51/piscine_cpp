@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 16:40:01 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/16 16:47:56 by anclarma         ###   ########.fr       */
+/*   Created: 2022/02/20 14:30:44 by anclarma          #+#    #+#             */
+/*   Updated: 2022/02/20 15:10:32 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,34 @@
 # define WHATEVER_HPP
 
 template<typename T>
-void	swap(T &a, T &b)
+void	swap(T const &x, T const &y)
 {
-	T	c;
-
-	c = a;
-	a = b;
-	b = c;
+	(void)x;
+	(void)y;
 	return ;
 }
 
 template<typename T>
-T	min(T const &a, T const &b)
+void	swap(T &x, T &y)
 {
-	if (a < b)
-		return (a);
-	return (b);
+	T	tmp;
+
+	tmp = x;
+	x = y;
+	y = tmp;
+	return ;
 }
 
 template<typename T>
-T	max(T const &a, T const &b)
+T	min(T const &x, T const &y)
 {
-	if (a > b)
-		return (a);
-	return (b);
+	return (x < y ? x : y);
+}
+
+template<typename T>
+T	max(T const &x, T const &y)
+{
+	return (x > y ? x : y);
 }
 
 #endif

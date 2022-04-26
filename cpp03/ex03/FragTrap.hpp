@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:09:34 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/04 19:49:05 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/16 05:44:46 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ class	FragTrap : virtual public ClapTrap
 
 		FragTrap	&operator=(FragTrap const &rhs);
 
+		void	attack(std::string const &target);
 		void	highFivesGuys(void);
 	protected:
-		std::string		_name;
-		unsigned int	_hitpoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
+		static unsigned int const	_defaultHitPoints = 100;
+		static unsigned int const	_defaultEnergyPoints = 100;
+		static unsigned int const	_defaultAttackDamage = 30;
 };
 
 #endif

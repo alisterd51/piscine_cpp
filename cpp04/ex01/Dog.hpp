@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 23:54:01 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 22:47:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/17 10:27:36 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ class	Dog : public Animal
 		Dog	&operator=(Dog const &rhs);
 
 		virtual void	makeSound(void) const;
-	protected:
-
+		void			addIdea(std::string idea);
+		void			printIdeas(void) const;
 	private:
-		Brain	*_brain;
+		Brain			*_brain;
+		unsigned int	_numberIdeas;
 };
 
 #endif

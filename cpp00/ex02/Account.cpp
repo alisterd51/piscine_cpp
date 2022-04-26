@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:22:59 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/31 00:40:13 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/11 08:51:46 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ Account::~Account(void)
 {
 	Account::_displayTimestamp();
 	Account::_nbAccounts--;
+	Account::_totalAmount -= this->_amount;
 	std::cout << "index:" << this->_accountIndex
 		<< ";amount:" << this->_amount
 		<< ";closed" << std::endl;
@@ -74,6 +75,8 @@ void	Account::makeDeposit(int deposit)
 {
 	Account::_displayTimestamp();
 	this->_amount += deposit;
+	Account::_totalAmount += deposit;
+	Account::_totalNbDeposits++;
 	this->_nbDeposits++;
 	std::cout << "index:" << this->_accountIndex
 		<< ";p_amount:" << this->_amount - deposit
@@ -96,8 +99,10 @@ bool	Account::makeWithdrawal(int withdrawal)
 	}
 	std::cout << ";withdrawal:" << withdrawal;
 	this->_amount -= withdrawal;
+	Account::_totalAmount -= withdrawal;
 	std::cout << ";amount:" << this->_amount;
 	this->_nbWithdrawals++;
+	Account::_totalNbWithdrawals++;
 	std::cout << ";nb_withdrawals:" << this->_nbWithdrawals;
 	std::cout << std::endl;
 	return (true);

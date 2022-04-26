@@ -6,35 +6,40 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 23:40:50 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 22:57:51 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/17 05:06:51 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Animal.hpp"
 
 Animal::Animal(void) :
 	type("animal")
 {
 	std::cout
-		<< "default constructor of the animal class"
+		<< GREEN
+		<< "a new animal has been created"
+		<< RESET
 		<< std::endl;
 	return ;
 }
 
 Animal::Animal(Animal const &src)
 {
-	std::cout
-		<< "constructor by copy of the animal class"
-		<< std::endl;
 	*this = src;
+	std::cout
+		<< GREEN
+		<< "a new animal has been created by copy"
+		<< RESET
+		<< std::endl;
 	return ;
 }
 
 Animal::~Animal(void)
 {
 	std::cout
-		<< "default destructor of the animal class"
+		<< RED
+		<< "an animal has been destroyed"
+		<< RESET
 		<< std::endl;
 	return ;
 }

@@ -6,11 +6,23 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 16:16:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/07 16:21:52 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/17 12:38:56 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+
+AMateria::AMateria(void) :
+	_type("unknown")
+{
+	return ;
+}
+
+AMateria::AMateria(AMateria const &src)
+{
+	*this = src;
+	return ;
+}
 
 AMateria::AMateria(std::string const &type) :
 	_type(type)
@@ -21,6 +33,15 @@ AMateria::AMateria(std::string const &type) :
 AMateria::~AMateria(void)
 {
 	return ;
+}
+
+AMateria	&AMateria::operator=(AMateria const &rhs)
+{
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+	}
+	return (*this);
 }
 
 std::string const & AMateria::getType() const

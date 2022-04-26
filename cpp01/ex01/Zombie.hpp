@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 18:54:59 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/31 01:15:46 by anclarma         ###   ########.fr       */
+/*   Created: 2022/02/11 14:48:40 by anclarma          #+#    #+#             */
+/*   Updated: 2022/02/11 20:47:02 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@ class	Zombie
 {
 	public:
 		Zombie(void);
-		~Zombie(void);
+		Zombie(Zombie const &src);
+		virtual	~Zombie(void);
 
-		void	naming(std::string name);
-		void	announce(void) const;
+		Zombie	&operator=(Zombie const &rhs);
+
+		void	announce(void);
+		void	setName(std::string name);
 	private:
-		std::string _name;
+		std::string	name;
 };
 
 Zombie*	zombieHorde(int N, std::string name);
 
 #endif
+

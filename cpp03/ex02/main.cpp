@@ -3,44 +3,99 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 14:56:12 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/04 17:28:48 by anclarma         ###   ########.fr       */
+/*   Created: 2022/02/15 19:45:42 by anclarma          #+#    #+#             */
+/*   Updated: 2022/02/16 07:19:08 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include "FragTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap	slave1("claptrap n42");
-	ClapTrap	slave2("claptrap n41");
+	std::cout << "--------------------" << std::endl;
+	{
+		FragTrap	frag("fighter");
 
-	slave1.attack("claptrap n41");
-	slave2.takeDamage(1);
-	slave2.beRepaired(2);
-	slave1.attack("claptrap n41");
-	slave2.takeDamage(1000);
-	slave2 = ClapTrap("claptrap n41 bis");
-	slave1.attack("claptrap n41 bis");
-	slave2.takeDamage(0);
+		std::cout
+			<< frag << std::endl;
+	}
+	std::cout << "--------------------" << std::endl;
+	{
+		ClapTrap	*frag = new FragTrap("guardian");
 
-	ScavTrap	slave3("scavtrap n0");
+		std::cout
+			<< *frag << std::endl;
+		frag->attack("an insignificant claptrap");
+		frag->takeDamage(15);
+		frag->beRepaired(10);
+		std::cout
+			<< *frag << std::endl;
+		delete frag;
+	}
+	std::cout << "--------------------" << std::endl;
+	{
+		FragTrap	frag("fighter");
+		FragTrap	fragBis(frag);
+		FragTrap	fragTer;
+		FragTrap	fragQuater = frag;
 
-	slave3.attack("claptrap n41 bis");
-	slave3.takeDamage(20);
-	slave3.beRepaired(10);
-	slave3.guardGate();
+		std::cout
+			<< frag << std::endl
+			<< fragBis << std::endl
+			<< fragTer << std::endl
+			<< fragQuater << std::endl;
+	}
+	std::cout << "--------------------" << std::endl;
+	{
+		FragTrap	frag("fighter");
 
-	FragTrap	slave4("fragtarp n1");
+		std::cout
+			<< frag << std::endl;
+		frag.attack("an insignificant claptrap");
+		frag.takeDamage(15);
+		frag.beRepaired(10);
+		frag.highFivesGuys();
+		std::cout
+			<< frag << std::endl;
+	}
+	std::cout << "--------------------" << std::endl;
+	{
+		FragTrap	frag("fighter");
 
-	slave4.attack("claptrap n41 bis");
-	slave4.takeDamage(20);
-	slave4.beRepaired(10);
-	slave4.highFivesGuys();
+		std::cout
+			<< frag << std::endl;
+		for (int i = 0; i < 110; i++)
+			frag.attack("an insignificant claptrap");
+		std::cout
+			<< frag << std::endl;
+		frag.attack("an insignificant claptrap");
+		frag.takeDamage(15);
+		frag.beRepaired(10);
+		frag.highFivesGuys();
+		std::cout
+			<< frag << std::endl;
+	}
+	std::cout << "--------------------" << std::endl;
+	{
+		FragTrap	frag("fighter");
+
+		std::cout
+			<< frag << std::endl;
+		frag.takeDamage(1500);
+		std::cout
+			<< frag << std::endl;
+		frag.attack("an insignificant claptrap");
+		frag.takeDamage(15);
+		frag.beRepaired(10);
+		frag.highFivesGuys();
+		std::cout
+			<< frag << std::endl;
+	}
+	std::cout << "--------------------" << std::endl;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 19:05:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/10/31 01:09:07 by anclarma         ###   ########.fr       */
+/*   Created: 2022/02/11 15:08:51 by anclarma          #+#    #+#             */
+/*   Updated: 2022/02/11 15:18:18 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ Zombie*	newZombie(std::string name)
 	Zombie	*zombie;
 
 	zombie = new Zombie();
-	zombie->naming(name);
+	zombie->setName(name);
 	return (zombie);
 }

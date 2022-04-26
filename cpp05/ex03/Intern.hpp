@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 14:40:57 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/10 20:11:53 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/19 09:56:22 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ class	Intern
 	protected:
 
 	private:
-		Form	**_forms;
+		Form	*newShrubberyCreationForm(std::string const &target);
+		Form	*newRobotomyRequestForm(std::string const &target);
+		Form	*newPresidentialPardonForm(std::string const &target);
+		std::string	_formName[3];
+		Form*		(Intern::*_f[3])(std::string const &target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:17:01 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 13:58:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/11 01:49:54 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			putchar(toupper(av[i][j]));
+			std::cout << static_cast<char>(toupper(av[i][j]));
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:29:22 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/10 20:17:22 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/19 10:29:51 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,61 +18,93 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
+#define BLACK		"\033[1;30m"
+#define RED			"\033[1;31m"
+#define GREEN		"\033[1;32m"
+#define YELLOW		"\033[1;33m"
+#define BLUE		"\033[1;34m"
+#define MAGENTA		"\033[1;35m"
+#define CYAN		"\033[1;36m"
+#define WHITE		"\033[1;37m"
+#define RESET		"\033[0m"
+
 int	main(void)
 {
+	Bureaucrat	kevin("kevin", 150);
+	Bureaucrat	jean("jean", 50);
+	Bureaucrat	isildur("isildur", 1);
+	Intern		slave;
+
+	std::cout << MAGENTA << "make form test, test" << RESET << std::endl;
 	{
-		Bureaucrat	kevin("kevin", 150);
-		Bureaucrat	jean("jean", 50);
-		Bureaucrat	isildur("isildur", 1);
-		Intern		slave;
-		Form		*formTest = slave.makeForm("test", "test");
+		Form		*form0 = slave.makeForm("test", "test");
+
+		if (form0 != NULL)
+		{
+			std::cout << "new form:\t" << *form0 << std::endl;
+			kevin.executeForm(*form0);
+			kevin.signForm(*form0);
+			jean.signForm(*form0);
+			isildur.signForm(*form0);
+			kevin.executeForm(*form0);
+			jean.executeForm(*form0);
+			isildur.executeForm(*form0);
+			delete form0;
+		}
+	}
+	std::cout << MAGENTA << "make form shrubbery creation, home" << RESET
+		<< std::endl;
+	{
 		Form		*form1 = slave.makeForm("shrubbery creation", "home");
-		std::cout
-			<< "new form:\t"
-			<< *form1
-			<< std::endl;
+
+		if (form1 != NULL)
+		{
+			std::cout << "new form:\t" << *form1 << std::endl;
+			kevin.executeForm(*form1);
+			kevin.signForm(*form1);
+			jean.signForm(*form1);
+			isildur.signForm(*form1);
+			kevin.executeForm(*form1);
+			jean.executeForm(*form1);
+			isildur.executeForm(*form1);
+			delete form1;
+		}
+	}
+	std::cout << MAGENTA << "make form robotomy request, anclarma" << RESET
+		<< std::endl;
+	{
 		Form		*form2 = slave.makeForm("robotomy request", "anclarma");
-		std::cout
-			<< "new form:\t"
-			<< *form2
-			<< std::endl;
+
+		if (form2 != NULL)
+		{
+			std::cout << "new form:\t" << *form2 << std::endl;
+			kevin.executeForm(*form2);
+			kevin.signForm(*form2);
+			jean.signForm(*form2);
+			isildur.signForm(*form2);
+			kevin.executeForm(*form2);
+			jean.executeForm(*form2);
+			isildur.executeForm(*form2);
+			delete form2;
+		}
+	}
+	std::cout << MAGENTA << "make form presidential pardon, Xavier" << RESET
+		<< std::endl;
+	{
 		Form		*form3 = slave.makeForm("presidential pardon", "Xavier");
-		std::cout
-			<< "new form:\t"
-			<< *form3
-			<< std::endl;
 
-		kevin.executeForm(*form1);
-
-		kevin.signForm(*form1);
-		jean.signForm(*form1);
-		isildur.signForm(*form1);
-		kevin.executeForm(*form1);
-		jean.executeForm(*form1);
-		isildur.executeForm(*form1);
-
-		kevin.executeForm(*form2);
-
-		kevin.signForm(*form2);
-		jean.signForm(*form2);
-		isildur.signForm(*form2);
-		kevin.executeForm(*form2);
-		jean.executeForm(*form2);
-		isildur.executeForm(*form2);
-
-		kevin.executeForm(*form3);
-
-		kevin.signForm(*form3);
-		jean.signForm(*form3);
-		isildur.signForm(*form3);
-		kevin.executeForm(*form3);
-		jean.executeForm(*form3);
-		isildur.executeForm(*form3);
-
-		delete formTest;
-		delete form1;
-		delete form2;
-		delete form3;
+		if (form3 != NULL)
+		{
+			std::cout << "new form:\t" << *form3 << std::endl;
+			kevin.executeForm(*form3);
+			kevin.signForm(*form3);
+			jean.signForm(*form3);
+			isildur.signForm(*form3);
+			kevin.executeForm(*form3);
+			jean.executeForm(*form3);
+			isildur.executeForm(*form3);
+			delete form3;
+		}
 	}
 	return (0);
 }

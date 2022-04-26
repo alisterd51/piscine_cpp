@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 01:20:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/18 06:05:58 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:13:44 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ class	Span
 		void	addNumber(int const &number);
 		void	addNumber(unsigned int const &nbIteration, int const &value);
 		void	addNumber(unsigned int const &nbIteration, int (*f)(void));
-		unsigned int	shortestSpan(void);
-		unsigned int	longestSpan(void);
+		void	addNumber(std::list<int>::const_iterator begin, std::list<int>::const_iterator end);
+		unsigned int	shortestSpan(void) const;
+		unsigned int	longestSpan(void) const;
 
 		class	tooMuchValueException : public std::exception
 		{

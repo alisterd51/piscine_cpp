@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.hpp                                  :+:      :+:    :+:   */
+/*   WrongDog.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 15:02:05 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/05 13:59:18 by anclarma         ###   ########.fr       */
+/*   Created: 2021/11/04 23:54:01 by anclarma          #+#    #+#             */
+/*   Updated: 2021/11/05 00:41:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#ifndef WRONGDOG_HPP
+# define WRONGDOG_HPP
 
-# include <string>
+#include "WrongAnimal.hpp"
 
-class	Contact
+class	WrongDog : public WrongAnimal
 {
 	public:
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
+		WrongDog(void);
+		WrongDog(WrongDog const &src);
+		virtual	~WrongDog(void);
 
-		Contact(void);
-		virtual ~Contact(void);
+		WrongDog	&operator=(WrongDog const &rhs);
 
-		void	print(void);
+		void	makeSound(void) const;
+	protected:
+
+	private:
+
 };
 
 #endif

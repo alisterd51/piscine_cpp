@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/04 14:23:27 by anclarma          #+#    #+#              #
-#    Updated: 2021/11/04 17:15:09 by anclarma         ###   ########.fr        #
+#    Created: 2022/02/14 10:48:25 by anclarma          #+#    #+#              #
+#    Updated: 2022/02/16 02:05:05 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= fragtrap
+NAME		= frag
 C_DIR		= .
 O_DIR		= objs
 C_FILES		= main.cpp					\
@@ -20,12 +20,10 @@ C_FILES		= main.cpp					\
 SRCS		= $(patsubst %, $(C_DIR)/%, $(C_FILES))
 O_FILES		= $(C_FILES:.cpp=.o)
 OBJS		= $(patsubst %, $(O_DIR)/%, $(O_FILES))
-CXX			= g++
+CXX			= c++
 MAKE		= make
 RM			= rm -f
 MKDIR		= mkdir -p
-CFLAGS		= -Wall -Wextra -Werror		\
-			  -MMD -MP
 CXXFLAGS	= -Wall -Wextra -Werror		\
 			  -std=c++98				\
 			  -MMD -MP
@@ -34,8 +32,6 @@ CINCLUDES	= -I ./includes
 CLIBS		=
 
 all:		$(NAME)
-
-check:		all
 
 $(O_DIR)/%.o: $(C_DIR)/%.cpp
 			$(CXX) $(CXXFLAGS) $(CINCLUDES) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 00:35:12 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/10 19:17:20 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/09 02:42:37 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class	RobotomyRequestForm : public Form
 
 		RobotomyRequestForm	&operator=(RobotomyRequestForm const &rhs);
 		virtual void	execute(Bureaucrat const &executor) const;
-		virtual Form	*clone(std::string const &target) const;
 	protected:
 
 	private:

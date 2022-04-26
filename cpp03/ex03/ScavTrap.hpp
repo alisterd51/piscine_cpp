@@ -6,15 +6,15 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:09:34 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/04 19:50:24 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/16 05:45:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-#include <string>
-#include "ClapTrap.hpp"
+# include <string>
+# include "ClapTrap.hpp"
 
 class	ScavTrap : virtual public ClapTrap
 {
@@ -29,10 +29,9 @@ class	ScavTrap : virtual public ClapTrap
 		void	attack(std::string const &target);
 		void	guardGate(void);
 	protected:
-		std::string		_name;
-		unsigned int	_hitpoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
+		static unsigned int const	_defaultHitPoints = 100;
+		static unsigned int const	_defaultEnergyPoints = 50;
+		static unsigned int const	_defaultAttackDamage = 20;
 };
 
 #endif

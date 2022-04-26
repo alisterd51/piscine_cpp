@@ -6,12 +6,13 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 02:18:20 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/18 06:28:00 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:46:44 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <climits>
 #include <iostream>
+#include <algorithm>
 #include "Span.hpp"
 
 Span::Span(void) :
@@ -83,15 +84,30 @@ void    Span::addNumber(unsigned int const &nbIteration, int (*f)(void))
 	return ;
 }
 
-unsigned int	Span::shortestSpan(void)
+void    Span::addNumber(std::list<int>::const_iterator begin, std::list<int>::const_iterator end)
 {
-	std::list<int>::iterator	it;
-	std::list<int>::iterator	ite;
-	unsigned int				diff;
+	while (begin != end)
+	{
+		if (this->_lst.size() + 1 > this->_size)
+			throw Span::tooMuchValueException();
+		this->_lst.push_front(*begin);
+		begin++;
+	}
+	return ;
+}
+
+unsigned int	Span::shortestSpan(void) const
+{
+	std::list<int>::const_iterator	it;
+	std::list<int>::const_iterator	ite;
+	unsigned int					diff;
 
 	it = this->_lst.begin();
 	ite = this->_lst.end();
-	diff = UINT_MAX;
+	if (it != ite)
+		diff = UINT_MAX;
+	else
+		diff = 0;
 	while (it != ite)
 	{
 		unsigned int	local_diff;
@@ -111,10 +127,10 @@ unsigned int	Span::shortestSpan(void)
 	return (diff);
 }
 
-unsigned int	Span::longestSpan(void)
+unsigned int	Span::longestSpan(void) const
 {
-	std::list<int>::iterator	it;
-	std::list<int>::iterator	ite;
+	std::list<int>::const_iterator	it;
+	std::list<int>::const_iterator	ite;
 	unsigned int				diff;
 
 	it = this->_lst.begin();

@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:38:38 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/09 02:17:30 by anclarma         ###   ########.fr       */
+/*   Updated: 2022/02/18 23:31:14 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ class	Form
 		Form	&beSigned(Bureaucrat const &bureaucrat);
 		std::string const	&getName(void) const;
 		std::string const	&getTarget(void) const;
-		bool				getIsSigned(void) const;
+		bool const			&getIsSigned(void) const;
 		unsigned int const	&getGradeSignature(void) const;
 		unsigned int const	&getGradeExecution(void) const;
 		void				setIsSigned(bool isSigned);
-		virtual void	execute(Bureaucrat const & executor) const = 0;
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 		class	GradeTooHighException : public std::exception
 		{
 			public:

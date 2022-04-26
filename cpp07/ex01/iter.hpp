@@ -5,27 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 16:55:20 by anclarma          #+#    #+#             */
-/*   Updated: 2021/11/16 17:34:04 by anclarma         ###   ########.fr       */
+/*   Created: 2022/02/20 15:37:25 by anclarma          #+#    #+#             */
+/*   Updated: 2022/02/20 16:25:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITER_HPP
 # define ITER_HPP
 
-template<typename T, typename U, typename V>
-void	iter(T add, U length, void (*f)(V))
+template<typename T>
+void	iter(T const *tab, size_t const size, void (*f)(T const &))
 {
-	U	i;
+	for (size_t i = 0; i < size; i++)
+		f(tab[i]);
+}
 
-	i = 0;
-	while (i < length)
-	{
-		(*f)(&(static_cast<V>(add)[i]));
-		i++;
-	}
-	return ;
+template<typename T>
+void	iter(T *tab, size_t const size, void (*f)(T &))
+{
+	for (size_t i = 0; i < size; i++)
+		f(tab[i]);
 }
 
 #endif
-
